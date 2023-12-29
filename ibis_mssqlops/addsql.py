@@ -1,9 +1,6 @@
 import ibis
 import sqlalchemy as sa
 from ibis_mssqlops.expr import *
-from ibis_mssqlops.consts import (
-    DatePart
-)
 
 
 @ibis.mssql.add_operation(DateAdd)
