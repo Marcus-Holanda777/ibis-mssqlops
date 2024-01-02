@@ -6,6 +6,16 @@ from ibis_mssqlops.consts import (
 )
 
 
+def replicate(
+    expression,
+    count
+):
+    return Replicate(
+        expression,
+        count=count
+    )
+
+
 def dateadd(
     expression, 
     datepart, 

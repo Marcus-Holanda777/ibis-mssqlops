@@ -5,11 +5,15 @@ from ibis.expr import (
 )
 from ibis.expr.operations import Value
 from ibis_mssqlops.datatypes import _from_type_dtype
-from ibis_mssqlops.consts import (
-    MssqlTypeName,
-    DatePart
-)
 
+
+class Replicate(Value):
+    arg: Value[dt.String, ds.Any]
+    count: Value[dt.Integer, ds.Any]
+
+    dtype = dt.string
+    shape = rlz.shape_like('arg')
+    
 
 class DateAdd(Value):
     arg: Value[dt.Date | dt.Timestamp, ds.Any]

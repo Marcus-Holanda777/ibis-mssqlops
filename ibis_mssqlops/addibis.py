@@ -1,7 +1,7 @@
 from ibis_mssqlops.funcs import *
 from ibis.expr import types as ir
 
-
+ir.StringValue.replicate = replicate
 ir.StringValue.collatelatin = collatelatin
 ir.StringValue.trim = trim
 ir.Value.convert = convert

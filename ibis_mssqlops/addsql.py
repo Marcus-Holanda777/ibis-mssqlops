@@ -2,6 +2,15 @@ import ibis
 import sqlalchemy as sa
 from ibis_mssqlops.expr import *
 
+@ibis.mssql.add_operation(Replicate)
+def _replicate(translator, expr):
+    arg, count = expr.args
+
+    compile_arg = translator.translate(arg)
+    compile_count = translator.translate(count)
+
+    return sa.func.REPLICATE(compile_arg, compile_count)
+
 
 @ibis.mssql.add_operation(DateAdd)
 def _dateadd(translator, expr):
