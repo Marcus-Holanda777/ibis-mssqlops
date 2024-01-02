@@ -13,7 +13,7 @@ def replicate(
     return Replicate(
         expression,
         count=count
-    )
+    ).to_expr()
 
 
 def dateadd(
