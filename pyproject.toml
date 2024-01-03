@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ibis-mssqlops"
-version = "0.0.2"
+version = "0.0.3"
 description = ""
 authors = ["Marcus Holanda <mvsh777@hotmail.com>"]
 readme = "README.md"
