@@ -66,5 +66,5 @@ class DateFromParts(Value):
     month: Value[dt.Integer, ds.Any] | None = None
     day: Value[dt.Integer, ds.Any] | None = None
 
-    dtype = dt.date
+    dtype = rlz.dtype_like('arg')
     shape = rlz.shape_like('arg')
