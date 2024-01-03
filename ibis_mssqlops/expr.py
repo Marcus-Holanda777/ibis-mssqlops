@@ -7,6 +7,15 @@ from ibis.expr.operations import Value
 from ibis_mssqlops.datatypes import _from_type_dtype
 
 
+class DateDiff(Value):
+    arg: Value[dt.Timestamp | dt.Date, ds.Any]
+    enddate: Value[dt.Timestamp | dt.Date, ds.Any]
+    datepart: Value[dt.String, ds.Any]
+
+    dtype = dt.int
+    shape = rlz.shape_like('arg')
+
+
 class Replicate(Value):
     arg: Value[dt.String, ds.Any]
     count: Value[dt.Integer, ds.Any]

@@ -2,6 +2,21 @@ import ibis
 import sqlalchemy as sa
 from ibis_mssqlops.expr import *
 
+
+@ibis.mssql.add_operation(DateDiff)
+def _datediff(translator, expr):
+    arg, enddate, datepart = expr.args
+
+    compile_arg = translator.translate(arg)
+    compile_enddate = translator.translate(enddate)
+
+    return sa.func.DATEDIFF(
+        sa.text(datepart.value),
+        compile_arg,
+        compile_enddate
+    )
+
+
 @ibis.mssql.add_operation(Replicate)
 def _replicate(translator, expr):
     arg, count = expr.args

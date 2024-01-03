@@ -10,3 +10,5 @@ ir.DateValue.datefromparts = datefromparts
 ir.TimestampValue.datefromparts = datefromparts
 ir.DateValue.dateadd = dateadd
 ir.TimestampValue.dateadd = dateadd
+ir.DateValue.datediff = datediff
+ir.TimestampValue.datediff = datediff

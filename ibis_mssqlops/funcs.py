@@ -1,9 +1,19 @@
 from ibis_mssqlops.expr import *
-from ibis_mssqlops.consts import (
-    DatePart,
-    MssqlTypeName,
-    Style
-)
+from ibis_mssqlops.transforms import *
+
+
+@get_value_enums
+def datediff(
+    startdate,
+    enddate,
+    datepart = 'month'
+):
+    
+    return DateDiff(
+        startdate,
+        enddate=enddate,
+        datepart=datepart
+    ).to_expr()
 
 
 def replicate(
@@ -16,19 +26,16 @@ def replicate(
     ).to_expr()
 
 
+@get_value_enums
 def dateadd(
     expression, 
     datepart, 
     number
 ):
-    
-    key = datepart
-    if isinstance(datepart, DatePart):
-        key = datepart.value
 
     return DateAdd(
         expression, 
-        datepart=key, 
+        datepart=datepart, 
         number=number
     ).to_expr()
 
@@ -59,21 +66,15 @@ def datefromparts(
     ).to_expr()
 
 
+@get_value_enums
 def convert(
     expression, 
     data_type, 
     style = None
 ):
-    key = data_type
-    if isinstance(data_type, MssqlTypeName):
-        key = data_type.value
-    
-    st = style
-    if isinstance(style, Style):
-        st = style.value
 
     return Convert(
         expression, 
-        data_type=key, 
-        style=st
+        data_type=data_type, 
+        style=style
     ).to_expr()
