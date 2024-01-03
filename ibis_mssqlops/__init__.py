@@ -6,4 +6,4 @@ from ibis_mssqlops.consts import (
     Style as style
 )
 
-__version__ = '0.0.1'
+__version__ = '0.0.3'
