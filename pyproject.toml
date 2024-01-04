@@ -6,9 +6,9 @@ description = "Ibis-mssqlops é uma extensão ao backend MSSQL do ibis-framework
 authors = ["Marcus Holanda <mvsh777@hotmail.com>"]
 readme = "README.md"
 classifiers = [
-    "Development Status :: 1 - Planning"
+    "Development Status :: 1 - Planning",
     "Natural Language :: Portuguese (Brazilian)"
-    "Programming Language :: PL/SQL"
+    "Programming Language :: PL/SQL",
     "Programming Language :: Python :: 3.11"
 ]
 
