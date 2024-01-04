@@ -7,7 +7,7 @@ authors = ["Marcus Holanda <mvsh777@hotmail.com>"]
 readme = "README.md"
 classifiers = [
     "Development Status :: 1 - Planning",
-    "Natural Language :: Portuguese (Brazilian)"
+    "Natural Language :: Portuguese (Brazilian)",
     "Programming Language :: PL/SQL",
     "Programming Language :: Python :: 3.11"
 ]
