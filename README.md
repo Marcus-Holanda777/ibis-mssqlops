@@ -1,5 +1,5 @@
 # Ibis-mssqlops
-[![PyPI](https://img.shields.io/pypi/v/ibis-framework.svg)](https://pypi.org/project/ibis-mssqlops/)
+[![PyPI](https://img.shields.io/pypi/v/ibis-mssqlops.svg)](https://pypi.org/project/ibis-mssqlops/)
 
 ## O que é o  Ibis-mssqlops ?
 
@@ -15,7 +15,7 @@ mais não existem na biblioteca [ibis-framework](http://ibis-project.org)
 pip install ibis-mssqlops
 ```
 
-## Com usar ?
+## Como usar ?
 
 ```python
 >>> from ibis_mssqlops import *
@@ -25,4 +25,15 @@ pip install ibis-mssqlops
 >>> tbl.datas.datefromparts(day=1)
 ```
 
-Apartir da importação as funções já ficam disponíveis para utilização
+> Apartir da importação as funções já ficam disponíveis para utilização
+
+## Funções adicionadas
+
+- [DATEFROMPARTS]()
+- [DATEADD]()
+- [DATEDIFF]()
+- [CONVERT]()
+- [TRIM]()
+- [REPLICATE]()
+- [COLLATELATIN]() (Retira acentuação gráfica)
+- [ISNUMERIC]()
