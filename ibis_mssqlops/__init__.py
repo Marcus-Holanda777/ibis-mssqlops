@@ -5,5 +5,8 @@ from ibis_mssqlops.consts import (
     MssqlTypeName as mssqltype,
     Style as style
 )
+from ibis_mssqlops.connect import (
+    Connect as mssql_connect
+)
 
-__version__ = '0.0.4'
+__version__ = '0.0.5'
