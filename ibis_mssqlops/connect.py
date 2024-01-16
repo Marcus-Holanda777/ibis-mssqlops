@@ -87,12 +87,53 @@ class Connect:
             self.con.sql(sel)
         )
     
+    def __insert_pandas(
+        self, 
+        tbl: str,
+        df: pd.DataFrame
+    ) -> ir.Table:
+        
+        schema = ibis.memtable(df).schema()
+
+        self.con.drop_table(tbl)
+        temp = self.con.create_table(
+            tbl, 
+            schema=schema, 
+            overwrite=True
+        )
+
+        self.con.insert(tbl, df)
+
+        return temp
+    
     @is_connect
     def create_temp_table(
         self,
         tbl: str,
         obj: pd.DataFrame | ir.Table | pa.Table,
+        is_global: bool = False,
         **kwargs
     ) -> ir.Table:
+        
+        prefix = '#'
+        if is_global:
+            prefix += '#'
 
-        return self.con.create_table(f'#{tbl}', obj, **kwargs)
+        if isinstance(obj, pd.DataFrame):
+            return self.__insert_pandas(tbl, obj)
+
+        return self.con.create_table(f'{prefix}{tbl}', obj, **kwargs)
+    
+    @is_connect
+    def drop_temp_table(
+        self,
+        tbl,
+        is_global: bool = False,
+        **kwargs
+    ) -> None:
+        
+        prefix = '#'
+        if is_global:
+            prefix += '#'
+        
+        return self.con.drop_table(f'{prefix}{tbl}', **kwargs)
