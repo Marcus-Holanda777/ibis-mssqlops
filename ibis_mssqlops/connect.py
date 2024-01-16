@@ -23,12 +23,12 @@ class Connect:
             )
         )
     
-    def is_connect(self, func):
+    def is_connect(func):
         @wraps(func)
-        def inner(*args, **kwargs):
+        def inner(self, *args, **kwargs):
             if self.con is None:
                 self.con = self.__connect()
-            return func(*args, **kwargs)
+            return func(self, *args, **kwargs)
         return inner
     
     @is_connect
