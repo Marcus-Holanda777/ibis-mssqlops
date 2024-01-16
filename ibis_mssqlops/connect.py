@@ -4,6 +4,10 @@ from typing import (
     Sequence,
     Literal
 )
+import pandas as pd
+import pyarrow as pa
+from functools import wraps
+
 
 class Connect:
     def __init__(self, *args, **kwargs) -> None:
@@ -19,27 +23,33 @@ class Connect:
             )
         )
     
+    def is_connect(self, func):
+        @wraps(func)
+        def inner(*args, **kwargs):
+            if self.con is None:
+                self.con = self.__connect()
+            return func(*args, **kwargs)
+        return inner
+    
+    @is_connect
     def list_databases(
         self, 
         *args, 
         **kwargs
     ) -> list[str]:
-         
-        if self.con is None:
-            self.con = self.__connect()
 
         return self.con.list_databases(*args, **kwargs)
     
+    @is_connect
     def list_tables(
         self, 
         *args, 
         **kwargs
     ) -> list[str]:
         
-        if self.con is None:
-            self.con = self.__connect()
         return self.con.list_tables(*args, **kwargs)
     
+    @is_connect
     def table(
         self,
         tbl: str, 
@@ -73,9 +83,16 @@ class Connect:
            WITH({key})
         '''
 
-        if self.con is None:
-            self.con = self.__connect()
-
         return (
             self.con.sql(sel)
         )
+    
+    @is_connect
+    def create_temp_table(
+        self,
+        tbl: str,
+        obj: pd.DataFrame | ir.Table | pa.Table,
+        **kwargs
+    ) -> ir.Table:
+
+        return self.con.create_table(f'#{tbl}', obj, **kwargs)
