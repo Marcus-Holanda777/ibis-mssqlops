@@ -95,7 +95,7 @@ class Connect:
         
         schema = ibis.memtable(df).schema()
 
-        self.con.drop_table(tbl)
+        self.con.drop_table(tbl, force=True)
         temp = self.con.create_table(
             tbl, 
             schema=schema, 
