@@ -8,6 +8,5 @@ from ibis_mssqlops.consts import (
 from ibis_mssqlops.connect import (
     Connect as mssql_connect
 )
-from ibis.interactive import *
 
-__version__ = '0.0.52'
+__version__ = '0.0.53'
