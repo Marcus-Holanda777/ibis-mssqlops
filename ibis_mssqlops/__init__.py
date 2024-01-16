@@ -8,5 +8,21 @@ from ibis_mssqlops.consts import (
 from ibis_mssqlops.connect import (
     Connect as mssql_connect
 )
+import ibis
+from ibis import deferred as _
+from ibis import selectors as s
+from ibis import udf
+from ibis.expr import types as ir
 
-__version__ = '0.0.53'
+ibis.options.interactive = True
+
+__all__ = [
+    "_", "ex", "ibis", "s", "udf",
+    "datepart", 
+    "mssqltype",
+    "style",
+    "mssql_connect",
+    "ir"
+]
+
+__version__ = '0.0.54'
