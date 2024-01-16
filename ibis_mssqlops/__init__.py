@@ -17,7 +17,10 @@ from ibis.expr import types as ir
 ibis.options.interactive = True
 
 __all__ = [
-    "_", "ex", "ibis", "s", "udf",
+    "_", 
+    "ibis", 
+    "s", 
+    "udf",
     "datepart", 
     "mssqltype",
     "style",
