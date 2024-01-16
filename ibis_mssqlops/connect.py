@@ -120,7 +120,7 @@ class Connect:
             prefix += '#'
 
         if isinstance(obj, pd.DataFrame):
-            return self.__insert_pandas(tbl, obj)
+            return self.__insert_pandas(f'{prefix}{tbl}', obj)
 
         return self.con.create_table(f'{prefix}{tbl}', obj, **kwargs)
     
