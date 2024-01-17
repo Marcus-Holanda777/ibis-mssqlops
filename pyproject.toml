@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ibis-mssqlops"
-version = "0.0.54"
+version = "0.0.55"
 license = "MIT"
 description = "Ibis-mssqlops é uma extensão ao backend MSSQL do ibis-framework"
 authors = ["Marcus Holanda <mvsh777@hotmail.com>"]
