@@ -1,5 +1,5 @@
 from ibis_mssqlops.consts import (
-    DatePart,
+    DatePartType,
     MssqlTypeName,
     Style
 )
@@ -11,7 +11,7 @@ def get_value_enums(func):
     def inner(*args, **kwargs):
         tps = (
             Style,
-            DatePart,
+            DatePartType,
             MssqlTypeName
         )
 
