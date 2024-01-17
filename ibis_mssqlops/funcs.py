@@ -3,6 +3,18 @@ from ibis_mssqlops.transforms import *
 
 
 @get_value_enums
+def datepart(
+    expression,
+    datepart
+):
+    
+    return DatePart(
+        expression,
+        datepart=datepart
+    ).to_expr()
+
+
+@get_value_enums
 def datediff(
     startdate,
     enddate,

@@ -1,7 +1,7 @@
 import ibis_mssqlops.addibis
 import ibis_mssqlops.addsql
 from ibis_mssqlops.consts import (
-    DatePart as datepart,
+    DatePartType as datetype,
     MssqlTypeName as mssqltype,
     Style as style
 )
@@ -21,7 +21,7 @@ __all__ = [
     "ibis", 
     "s", 
     "udf",
-    "datepart", 
+    "datetype", 
     "mssqltype",
     "style",
     "mssql_connect",

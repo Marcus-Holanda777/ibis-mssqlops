@@ -3,6 +3,18 @@ import sqlalchemy as sa
 from ibis_mssqlops.expr import *
 
 
+@ibis.mssql.add_operation(DatePart)
+def _datepart(translator, expr):
+    arg, datepart = expr.args
+
+    compile_arg = translator.translate(arg)
+
+    return sa.func.DATEPART(
+        sa.text(datepart.value),
+        compile_arg
+    )
+
+
 @ibis.mssql.add_operation(DateDiff)
 def _datediff(translator, expr):
     arg, enddate, datepart = expr.args

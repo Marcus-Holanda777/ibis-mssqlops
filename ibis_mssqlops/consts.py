@@ -78,7 +78,7 @@ class MssqlTypeName(str, Enum):
     TIMESTAMP = 'TIMESTAMP'
 
 
-class DatePart(str, Enum):
+class DatePartType(str, Enum):
     YEAR = 'year' 
     QUARTER = 'quarter'
     MONTH = 'month'
