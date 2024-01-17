@@ -19,13 +19,18 @@ pip install ibis-mssqlops
 
 ```python
 >>> from ibis_mssqlops import *
->>> from ibis.interactive import *
 >>> tbl = ibis.table(dict(nome='string', datas='date'))
 >>> tbl.nome.trim()
 >>> tbl.datas.datefromparts(day=1)
 ```
 
 > Apartir da importação as funções já ficam disponíveis para utilização
+
+```diff
+- o modo interativo do ibis vem habilitado
++ para desabilitar usar 
+! ibis.options.interactive = False
+```
 
 ## Funções adicionadas
 
