@@ -32,6 +32,20 @@ pip install ibis-mssqlops
 ! ibis.options.interactive = False
 ```
 
+### Conexao
+
+Para se conectar ao banco de dados basta passar os parâmetros de conexão, 
+
+ou uma url a classe `mssql_connect` que é um invólucro sobre
+
+o conector padrão do [ibis-framework](http://ibis-project.org)
+
+```python
+>>> url = f'mssql+pymssql://{servidor}/{banco}'
+>>> con = mssql_connect(url=url)
+>>> tbl = con.table('NOME_DA_TABELA')
+```
+
 ## Funções adicionadas
 
 - [DATEFROMPARTS]()
