@@ -2,7 +2,7 @@ from ibis.expr import datatypes as dt
 
 
 _from_type_dtype = {
-    'BIGINT': dt.int16,
+    'BIGINT': dt.int64,
     'BIT': dt.boolean,
     'DECIMAL': dt.decimal,
     'INT': dt.int32,
@@ -33,3 +33,5 @@ _from_type_dtype = {
     'GEOGRAPHY': dt.GeoSpatial,
     'TIMESTAMP': dt.binary
 }
+
+__all__ = ['_from_type_dtype']

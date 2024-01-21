@@ -3,6 +3,27 @@ import sqlalchemy as sa
 from ibis_mssqlops.expr import *
 
 
+@ibis.mssql.add_operation(Format)
+def _format(translator, expr):
+    arg, format, culture = expr.args
+
+    compile_arg = translator.translate(arg)
+    compile_format = translator.translate(format)
+
+    if culture is not None:
+        compile_culture = translator.translate(culture)
+        return sa.func.FORMAT(
+            compile_arg,
+            compile_format,
+            compile_culture
+        )
+    
+    return sa.func.FORMAT(
+        compile_arg,
+        compile_format
+    )
+    
+
 @ibis.mssql.add_operation(DatePart)
 def _datepart(translator, expr):
     arg, datepart = expr.args

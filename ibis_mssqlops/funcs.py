@@ -1,6 +1,17 @@
 from ibis_mssqlops.expr import *
 from ibis_mssqlops.transforms import *
 
+def formats(
+    value,
+    format,
+    culture = None
+):
+    return Format(
+        value,
+        format=format,
+        culture=culture
+    ).to_expr()
+
 
 @get_value_enums
 def datepart(

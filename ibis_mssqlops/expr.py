@@ -7,6 +7,15 @@ from ibis.expr.operations import Value
 from ibis_mssqlops.datatypes import _from_type_dtype
 
 
+class Format(Value):
+    arg: Value[dt.Any, ds.Any]
+    format: Value[dt.String, ds.Any]
+    culture: Value[dt.String, ds.Any] | None = None
+
+    dtype = dt.string
+    shape = rlz.shape_like('arg')
+
+
 class DatePart(Value):
     arg: Value[dt.Timestamp | dt.Date, ds.Any]
     datepart: Value[dt.String, ds.Any]
