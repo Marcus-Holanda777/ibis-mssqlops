@@ -1,6 +1,20 @@
 from enum import Enum
 
 
+_dtype = {
+    1: 'mm/dd/yy',
+    101: 'mm/dd/yyyy',
+    2: 'yy.mm.dd',
+    102: 'yyyy.mm.dd',
+    3: 'dd/mm/yy',
+    103: 'dd/mm/yyyy',
+    4: 'dd.mm.yy',
+    104: 'dd.mm.yyyy',
+    5: 'dd-mm-yyy',
+    105: 'dd-mm-yyyy'
+}
+
+
 class Style(Enum):
     MMDDYY = 1
     MMDDYYYY = 101
@@ -15,34 +29,10 @@ class Style(Enum):
 
     def __repr__(self) -> str:
         cls_name = self.__class__.__name__
-        dtype = {
-            1: 'mm/dd/yy',
-            101: 'mm/dd/yyyy',
-            2: 'yy.mm.dd',
-            102: 'yyyy.mm.dd',
-            3: 'dd/mm/yy',
-            103: 'dd/mm/yyyy',
-            4: 'dd.mm.yy',
-            104: 'dd.mm.yyyy',
-            5: 'dd-mm-yyy',
-            105: 'dd-mm-yyyy'
-        }
-        return f'{cls_name}.{dtype[self.value]}'
+        return f'{cls_name}.{_dtype[self.value]}'
     
     def __str__(self) -> str:
-        dtype = {
-            1: 'mm/dd/yy',
-            101: 'mm/dd/yyyy',
-            2: 'yy.mm.dd',
-            102: 'yyyy.mm.dd',
-            3: 'dd/mm/yy',
-            103: 'dd/mm/yyyy',
-            4: 'dd.mm.yy',
-            104: 'dd.mm.yyyy',
-            5: 'dd-mm-yyy',
-            105: 'dd-mm-yyyy'
-        }
-        return f'{dtype[self.value]}'
+        return f'{_dtype[self.value]}'
 
 
 class MssqlTypeName(str, Enum):
@@ -92,3 +82,10 @@ class DatePartType(str, Enum):
     MILLISECOND = 'millisecond' 
     MICROSECOND = 'microsecond'
     NANOSECOND = 'nanosecond'
+
+
+__all__ = [
+    'Style',
+    'MssqlTypeName',
+    'DatePartType'
+]
