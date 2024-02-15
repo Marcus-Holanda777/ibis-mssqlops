@@ -46,7 +46,7 @@ o conector padrão do [ibis-framework](http://ibis-project.org)
 >>> tbl = con.table('NOME_DA_TABELA')
 ```
 
->  Até o momento o driver suportado é o `pymssql`
+>  O driver padrão agora é o `pyodbc`, mais ainda suporta o `pymssql`
 
 ## Funções adicionadas
 

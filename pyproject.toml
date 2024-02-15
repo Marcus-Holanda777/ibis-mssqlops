@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ibis-mssqlops"
-version = "0.0.57"
+version = "0.0.58"
 license = "MIT"
 description = "Ibis-mssqlops é uma extensão ao backend MSSQL do ibis-framework"
 authors = ["Marcus Holanda <mvsh777@hotmail.com>"]
@@ -19,8 +19,9 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.11"
-sqlalchemy = "^2.0.24"
-ibis-framework = {extras = ["mssql"], version = "^7.2.0"}
+sqlalchemy = "^2.0.25"
+ibis-framework = {extras = ["mssql"], version = "^8.0.0"}
+pymssql = "^2.2.11"
 
 
 [build-system]
